@@ -1,0 +1,14 @@
+CC=gcc
+
+# apt install libhidapi-dev
+
+LIB=-lhidapi-hidraw -lrt -pthread
+
+INC=-I NfcTask/inc -I TML/inc/ -I NfcLibrary/inc -I NfcLibrary/NxpNci/inc
+
+TML=TML/src/framework_Allocator.c TML/src/framework_Timer.c  TML/src/framework_log.c TML/src/framework_Map.c TML/src/framework_Container.c TML/src/framework_mutex.c TML/src/framework_thread.c TML/src/tml_hid.c TML/src/lpcusbsio.c TML/src/tml.c
+
+SRC=$(TML) NfcLibrary/NxpNci/src/NxpNci.c NfcTask/src/ndef_helper.c NfcTask/src/nfc_task.c Application/main.c
+
+nfc: $(SRC)
+	$(CC) $(INC) -o $@ $^ $(LIB)
