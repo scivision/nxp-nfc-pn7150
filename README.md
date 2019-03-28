@@ -1,5 +1,11 @@
 # NXP NFC PN7150 Makefiles
 
+**note: we found this source code actually doesn't work** despite compiling without error.
+on the same computer, NXP's prebuilt binary works.
+my first guess is NXP didn't include up to date source code, or statically linked different library versions.
+no error results, the NFC reader is detected, but no tags are readable with the self-compile source.
+with NXP's binary, the tag reads normally.
+
 Makefiles for NXP NFC PN7150 USB board: [MIKROE-2540](https://www.mikroe.com/nfc-usb-dongle).
 The documentation recommends the [NXP driver](http://www.nxp.com/documents/software/SW4335.zip) that has Eclipse IDE project files, but no Makefiles.
 I didn't want to bother with Eclipse, so I made these non-optimized Makefiles.
